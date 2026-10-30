@@ -1,13 +1,11 @@
-# CD.yml — its-dp-fab-adp-mds-managed
+# CD.yml — its-dp-fab-item-framework-managed
 # Remplace l'ancienne CD (ITG -> PPR -> PRD sans approbation, IDs en dur dans deploy.py).
 # Toute la logique est dans le template du socle commun (extends) : une seule
 # implémentation pour les 11 dépôts.
 #
 # Approbations PPR/PRD : Environments ADO fabric-ppr / fabric-prd (Approvals and checks).
 # Branches (v1.2) : develop → ITG, release/* → PPR, main → PRD ; toute autre branche est refusée.
-# Dépendance de déploiement unique : le Framework (v1.3, R1) — disponibilité vérifiée à chaque stage
-# (pré-vol Fabric + dernier déploiement réussi dans ADO), sans redéploiement du Framework ;
-# aucun ordre vis-à-vis des autres ADP/BDP (R2-R4).
+# Dépendance Framework : contrôlée à chaque stage (pré-vol Fabric + historique ADO).
 # ── trigger — pas de declenchement direct (le pipeline CI pousse l'artefact)
 trigger: none
 # ── pr — pas de declenchement sur Pull Request
@@ -26,7 +24,7 @@ resources:
   pipelines:
     - pipeline: ci
       # Nom EXACT du pipeline CI dans Azure DevOps (sensible à la casse à vérifier).
-      source: FabricCI
+      source: its-dp-fab-item-framework-managed-CI
       # v1.2 : un run de CD par build CI ; l'environnement dépend de la branche source :
       # develop → ITG, release/* → PPR, main → PRD (paramètre sourceBranches du template).
       trigger:
@@ -40,8 +38,8 @@ resources:
 extends:
   template: CICD/pipelines/templates/cd-pipeline.yml@cicd_common
   parameters:
-    repository: its-dp-fab-adp-mds-managed
-    role: consumer
+    repository: its-dp-fab-item-framework-managed
+    role: framework
     # DEV : « skip » tant qu'aucune identité DEV n'existe dans le groupe de variables
     # (décision D-02 : DEV relié à Git Integration et/ou déployé par fabric-cicd).
     devMode: skip
@@ -73,6 +71,4 @@ extends:
     # Le groupe Fabric-CD-Secrets n'est plus référencé. Il reste utilisé par les ANCIENNES CD
     # jusqu'à leur désactivation : ne pas le supprimer avant (backlog B33).
     frameworkGate: ado
-    frameworkPipelineName: "its-dp-fab-item-framework-managed-cd"   # nom exact de la CD Framework dans ADO (à confirmer)
-
-
+    frameworkPipelineName: ""
