@@ -11,10 +11,10 @@
 # ── core — cible et perimetre du deploiement fabric-cicd (workspaces, types d'items)
 core:
   workspace:
-    DEV: "FR - DP - DEV - FAB - ADP - GDS - Managed"
-    ITG: "FR - DP - ITG - FAB - ADP - GDS - Managed"
-    PPR: "FR - DP - PPR - FAB - ADP - GDS - Managed"
-    PRD: "FR - DP - PRD - FAB - ADP - GDS - Managed"
+    DEV: "FR - DP - DEV - FAB - ADP - GDS - MANAGED"
+    ITG: "FR - DP - ITG - FAB - ADP - GDS - MANAGED"
+    PPR: "FR - DP - PPR - FAB - ADP - GDS - MANAGED"
+    PRD: "FR - DP - PRD - FAB - ADP - GDS - MANAGED"
   # Relatif à ce fichier (fabric-cicd 1.4.0 et fabcicd le résolvent depuis le dossier de
   # config.yml) : CICD/deployment/ → ../../fabric = dossier fabric/ à la racine du dépôt.
   repository_directory: "../../fabric"

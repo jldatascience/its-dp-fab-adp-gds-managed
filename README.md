@@ -10,7 +10,7 @@ Ce dépôt ne contient **aucun code de déploiement**. Il décrit *quoi* déploy
 | Rubrique | Valeur |
 |---|---|
 | Catégorie | `adp` ; rôle `consumer` dans le socle |
-| Workspaces | `FR - DP - <ENV> - FAB - ADP - GDS - Managed` (DEV, ITG, PPR, PRD, confirmés le 01/11/2026, tiret simple) |
+| Workspaces | `FR - DP - <ENV> - FAB - ADP - GDS - MANAGED` (DEV, ITG, PPR, PRD, confirmés le 01/11/2026, tiret simple) |
 | Prérequis de déploiement | Framework : `FR - DP - <ENV> - FAB - Framework - MANAGED` |
 | Branches | `develop` (par défaut) · `release/*` · `main` |
 | Pipelines Azure DevOps | CI : `its-dp-fab-gds-managed-CI` (nom repris de l'ancienne CD, casse à confirmer) · CD : à créer depuis `CICD/pipelines/CD.yml` · validation de PR : à créer depuis `CICD/pipelines/PR-Validation.yml` |
@@ -119,10 +119,10 @@ its-dp-fab-adp-gds-managed/   branches develop (défaut) · release/* · main
 ```yaml
 core:
   workspace:
-    DEV: "FR - DP - DEV - FAB - ADP - GDS - Managed"
-    ITG: "FR - DP - ITG - FAB - ADP - GDS - Managed"
-    PPR: "FR - DP - PPR - FAB - ADP - GDS - Managed"
-    PRD: "FR - DP - PRD - FAB - ADP - GDS - Managed"
+    DEV: "FR - DP - DEV - FAB - ADP - GDS - MANAGED"
+    ITG: "FR - DP - ITG - FAB - ADP - GDS - MANAGED"
+    PPR: "FR - DP - PPR - FAB - ADP - GDS - MANAGED"
+    PRD: "FR - DP - PRD - FAB - ADP - GDS - MANAGED"
   repository_directory: "../../fabric"
   item_types_in_scope: []
 ```

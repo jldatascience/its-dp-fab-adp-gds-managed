@@ -12,7 +12,7 @@ Pour UN environnement (--env, ITG par défaut) :
     (interdit au déploiement) ou cible inconnue.
 
 Nom du workspace ADP, par ordre de priorité : --workspace, puis core.workspace.<ENV> de
-CICD/deployment/config.yml (ex. « FR - DP - ITG - FAB - ADP - GDS - Managed »).
+CICD/deployment/config.yml (ex. « FR - DP - ITG - FAB - ADP - GDS - MANAGED »).
 Nom du workspace Framework : framework.workspace.<ENV> de CICD/deployment/dependencies.yml.
 Aucun workspace MDS, BDP, UCS ou autre ADP n'est utilisé.
 Les ID des workspaces ADP ITG/PPR/PRD de l'ancienne CD figurent dans le registre du socle

@@ -49,7 +49,7 @@ extends:
     # Le template n'accepte que framework | consumer : un ADP est « consumer »
     # (category adp dans dependencies.yml ; cohérence contrôlée par --expected-role).
     role: consumer
-    # DEV : aucun stage. Le workspace « FR - DP - DEV - FAB - ADP - GDS - Managed »
+    # DEV : aucun stage. Le workspace « FR - DP - DEV - FAB - ADP - GDS - MANAGED »
     # est alimenté par Git Integration (dossier fabric de develop), jamais par la CD.
     devMode: skip
     lastEnvironment: PRD

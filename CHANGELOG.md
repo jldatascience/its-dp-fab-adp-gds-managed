@@ -24,7 +24,7 @@ dans le `CHANGELOG.md` de `its-dp-fab-cicd-common`, versionné par tag `vX.Y.Z`.
     `frameworkGate: ado` (Framework seul prérequis, R1), `frameworkPipelineName` en marqueur,
     coffre `frfrkvdevdp0001`, 3 service connections ARM distinctes ITG, PPR, PRD (décision du 31/10/2026).
   - `CICD/pipelines/PR-Validation.yml` : en-tête ADP, contenu inchangé.
-  - `CICD/deployment/config.yml` : workspaces `FR - DP - <ENV> - FAB - ADP - GDS - Managed`
+  - `CICD/deployment/config.yml` : workspaces `FR - DP - <ENV> - FAB - ADP - GDS - MANAGED`
     pour DEV, ITG, PPR et PRD (confirmés le 01/11/2026, tiret simple) ; `item_types_in_scope` vide ;
     clé `core.parameter`, `folder_exclude_regex` et `features` retirés.
   - `CICD/deployment/dependencies.yml` : `role: consumer`, `category: adp`, `framework.required: true`
@@ -43,6 +43,12 @@ dans le `CHANGELOG.md` de `its-dp-fab-cicd-common`, versionné par tag `vX.Y.Z`.
   - `.gitignore` : remplacé par celui des dépôts MDS, Alexandrie et UCS, à l'identique
     (`.gitattributes` était déjà identique).
   - README réécrit pour l'ADP ; ce journal remplace celui du Framework, copié par erreur.
+
+### Fixed
+
+- Noms des workspaces GDS : suffixe `MANAGED` en majuscules pour DEV, ITG, PPR et PRD (au lieu de
+  `Managed`), confirmé dans le portail Fabric le 01/11/2026 ; le pré-vol compare les noms caractère
+  par caractère.
 
 ### Removed
 
@@ -68,7 +74,6 @@ dans le `CHANGELOG.md` de `its-dp-fab-cicd-common`, versionné par tag `vX.Y.Z`.
 - Organisation et service connection GitHub ; noms des 3 service connections ARM ITG, PPR et PRD (création prévue).
 - Casse exacte du pipeline CI dans Azure DevOps (`its-dp-fab-gds-managed-CI`, sans « adp », repris de
   l'ancienne CD) ; nom exact de la CD Framework.
-- Casse « Managed » des noms de workspaces GDS (comparés caractère par caractère au pré-vol).
 - Types d'items, règles, `framework.items`, connexions Fabric, Variable Libraries, `guid_policy` et
   `data_dependencies`, après synchronisation Git Integration.
 - Point V-01 : le filtre `contents: "!/*.json"` de l'artefact CI ne doit pas exclure les fichiers d'items.
